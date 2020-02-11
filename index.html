@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  <style>
+	.btn-group button {
+	    padding:4px 4px;
+	}
+  </style>
+  <body onload="oncreate()">
+    <input type="file" id="fileInput">
+    <h1 id="foreignword" style="text-align: center; width:100%">faktiskt</h1>
+    <div class="btn-group">
+	   <button type="button" id="button1" style="font-size:60px;width:100%" onclick="makechoice(this.id)">воистину</button>
+	   <button type="button" id="button2" style="font-size:60px;width:100%" onclick="makechoice(this.id)">её</button>
+	   <button type="button" id="button3" style="font-size:60px;width:100%" onclick="makechoice(this.id)">икона</button>
+	   <button type="button" id="button4" style="font-size:60px;width:100%" onclick="makechoice(this.id)">потешный</button>
+	   <button type="button" id="button5" style="font-size:60px;width:100%" onclick="makechoice(this.id)">страсть</button>
+	   <button type="button" id="button6" style="font-size:60px;width:100%" onclick="makechoice(this.id)">компьютер</button>
+	   <button type="button" id="button7" style="font-size:60px;width:100%" onclick="makechoice(this.id)">чистота</button>
+	</div>
+	<button type="button" id="buttonNext" style="font-size:60px;width:100%;padding:16px 16px;color:blue" onclick="clicknext()">Следующее слово</button>
+	<h1 id="language" style="text-align: center; width:100%">Язык</h1>
+	<h1 id="rightwrong" style="text-align: center; width:100%">верно/неверно</h1>
+	<h1 id="counter" style="text-align: center; width:100%">0+/0-(0%)</h1>
+	<script src="js/scripts.js"></script>
+  </body>
+</html>		
