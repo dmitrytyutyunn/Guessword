@@ -32,6 +32,8 @@ function oncreate(){
             fileDisplayArea.innerText = "File not supported!"
         }
     });
+	
+    clicknext();
 }
 function makechoice(clicked){
 	
@@ -183,7 +185,7 @@ function makechoice(clicked){
 
 function clicknext(){
 	
-	document.getElementById("button1").style.color = 'black';
+    document.getElementById("button1").style.color = 'black';
     document.getElementById("button2").style.color = 'black';
     document.getElementById("button3").style.color = 'black';
     document.getElementById("button4").style.color = 'black';
@@ -192,7 +194,7 @@ function clicknext(){
     document.getElementById("button7").style.color = 'black';
 	
 	document.getElementById("rightwrong").innerText = "верно/неверно";
-    document.getElementById("rightwrong").style.color = 'black';
+        document.getElementById("rightwrong").style.color = 'black';
 	document.getElementById("language").innerText = "Язык";
 	AnswerIsGiven = false;
 	
@@ -203,7 +205,7 @@ function clicknext(){
 		i++;
 	}
 	   
-		document.getElementById("button1").innerText = translations[0];
+	document.getElementById("button1").innerText = translations[0];
         document.getElementById("button2").innerText = translations[1];
         document.getElementById("button3").innerText = translations[2];
         document.getElementById("button4").innerText = translations[3];
