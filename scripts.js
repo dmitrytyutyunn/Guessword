@@ -185,6 +185,7 @@ function makechoice(clicked){
 
 function clicknext(){
 		
+	
     langCodes = [];
     langNames = [];
 
@@ -308,7 +309,7 @@ function clicknext(){
     }
 
     console.log(langNames+langCodes);
-	
+
     document.getElementById("button1").style.color = 'black';
     document.getElementById("button2").style.color = 'black';
     document.getElementById("button3").style.color = 'black';
@@ -339,7 +340,7 @@ function clicknext(){
 		
 	    answer = Math.floor(Math.random()*7);
 		var russianWord = translations[answer];
-		pickedLanguage = Math.floor(Math.random()*11);
+		pickedLanguage = Math.floor(Math.random()*langCodes.length);
 		var queryToYandex = "https://translate.yandex.net/api/v1.5/tr/translate";
 		queryToYandex = queryToYandex + "?key=trnsl.1.1.20191110T113219Z.a27f93a787a423c7.4cfa3910ce62c9397fbbd42b19380575446b555c";
 		queryToYandex = queryToYandex + "&text="+russianWord;
