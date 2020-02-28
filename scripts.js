@@ -184,6 +184,130 @@ function makechoice(clicked){
 }
 
 function clicknext(){
+		
+    langCodes = [];
+    langNames = [];
+
+    if(document.getElementById('english').checked){
+        langCodes.push("en");
+        langNames.push("Английский");
+    }
+    if(document.getElementById('german').checked){
+        langCodes.push("de");
+        langNames.push("Немецкий");
+    }
+    
+    if(document.getElementById('whiterussian').checked){
+        langCodes.push("be");
+        langNames.push("Белорусский");
+    }
+    
+    if(document.getElementById('french').checked){
+        langCodes.push("fr");
+        langNames.push("Французский");
+    }
+    
+    if(document.getElementById('italian').checked){
+        langCodes.push("it");
+        langNames.push("Итальянский");
+    }
+    
+    if(document.getElementById('greek').checked){
+        langCodes.push("el");
+        langNames.push("Греческий");
+    }
+    
+    if(document.getElementById('litovian').checked){
+        langCodes.push("lt");
+        langNames.push("Литовский");
+    }
+    
+    if(document.getElementById('swedish').checked){
+        langCodes.push("sv");
+        langNames.push("Шведский");
+    }
+    
+    if(document.getElementById('norway').checked){
+        langCodes.push("no");
+        langNames.push("Норвежский");
+    }
+
+    if(document.getElementById('ukrainien').checked){
+        langCodes.push("uk");
+        langNames.push("Украинский");
+    }
+
+    if(document.getElementById('portugiese').checked){
+        langCodes.push("pt");
+        langNames.push("Португальский");
+    }
+
+    if(document.getElementById('finnish').checked){
+        langCodes.push("fi");
+        langNames.push("Финский");
+    }
+
+    if(document.getElementById('estonian').checked){
+        langCodes.push("et");
+        langNames.push("Эстонский");
+    }
+
+    if(document.getElementById('hollandish').checked){
+        langCodes.push("nl");
+        langNames.push("Голландский");
+    }
+
+    if(document.getElementById('dutch').checked){
+        langCodes.push("da");
+        langNames.push("Датский");
+    }
+
+    if(document.getElementById('austrian').checked){
+        langCodes.push("cs");
+        langNames.push("Чешский");
+    }
+
+    if(document.getElementById('polen').checked){
+        langCodes.push("pl");
+        langNames.push("Польский");
+    }
+
+    if(document.getElementById('makedonian').checked){
+        langCodes.push("mk");
+        langNames.push("Македонский");
+    }
+
+    if(document.getElementById('bolgarian').checked){
+        langCodes.push("bg");
+        langNames.push("Болгарский");
+    }
+
+    if(document.getElementById('islandish').checked){
+        langCodes.push("is");
+        langNames.push("Исландский");
+    }
+
+    if(document.getElementById('rumanian').checked){
+        langCodes.push("ro");
+        langNames.push("Румынский");
+    }
+
+    if(document.getElementById('chorvatian').checked){
+        langCodes.push("hr");
+        langNames.push("Хорватский");
+    }
+
+    if(document.getElementById('esperanto').checked){
+        langCodes.push("eo");
+        langNames.push("Эсперанто");
+    }
+
+    if(document.getElementById('spanish').checked){
+        langCodes.push("es");
+        langNames.push("Испанский");
+    }
+
+    console.log(langNames+langCodes);
 	
     document.getElementById("button1").style.color = 'black';
     document.getElementById("button2").style.color = 'black';
