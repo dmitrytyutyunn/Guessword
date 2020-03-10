@@ -378,48 +378,55 @@ function disableWrongChoices() {
 				        switch(NumberOfDisabledButton){
 					        case 0:
 					            if(!document.getElementById("button1").disabled){
-                                    document.getElementById("button1").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 1:
-					            if(!document.getElementById("button2").disabled){
-                                    document.getElementById("button2").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 2:
-					            if(!document.getElementById("button3").disabled){
-                                    document.getElementById("button3").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 3:
-					            if(!document.getElementById("button4").disabled){
-                                    document.getElementById("button4").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 4:
-					            if(!document.getElementById("button5").disabled){
-                                    document.getElementById("button5").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 5:
-					            if(!document.getElementById("button6").disabled){
-                                    document.getElementById("button6").disabled = true;
-                                    i++;
-                                    continue;
-                                }
-					        case 6:
-					            if(!document.getElementById("button7").disabled){
-                                    document.getElementById("button7").disabled = true;
-                                    i++;
-                                    continue;   
-                                }
-                        }
-				    }				
+                                   			 document.getElementById("button1").disabled = true;
+                           			         document.getElementById("button1").style.color = 'green';
+                             				       i++;
+                                			    continue;
+                               				 }
+						case 1:
+							if(!document.getElementById("button2").disabled){
+                                   				document.getElementById("button2").disabled = true;
+                                  				document.getElementById("button2").style.color = 'green';
+                                  				i++;
+                                   				continue;
+                              				  }
+						case 2:
+							if(!document.getElementById("button3").disabled){
+                                 				 document.getElementById("button3").disabled = true;
+                                 				 document.getElementById("button3").style.color = 'green';
+                                 				 i++;
+                                   				 continue;
+                                			}
+						case 3:
+							if(!document.getElementById("button4").disabled){
+                                			 	  document.getElementById("button4").disabled = true;
+                                  				  document.getElementById("button4").style.color = 'green';
+                                  				  i++;
+                                   				  continue;
+                               				 }
+						case 4:
+							if(!document.getElementById("button5").disabled){
+                                 				  document.getElementById("button5").disabled = true;
+                                  				  document.getElementById("button5").style.color = 'green';
+                                  				  i++;
+                                  				  continue;
+                               				 }
+						case 5:
+							if(!document.getElementById("button6").disabled){
+                               					  document.getElementById("button6").disabled = true;
+                                 				  document.getElementById("button6").style.color = 'green';
+                                  				  i++;
+                                  				  continue;
+                               				 }
+						case 6:
+							if(!document.getElementById("button7").disabled){
+                                  				  document.getElementById("button7").disabled = true;
+                                  				  document.getElementById("button7").style.color = 'green';
+                                   				  i++;
+                                   				  continue;   
+                               				 }
+                       			 }
+				 }				
 			}			
 				
 		}
