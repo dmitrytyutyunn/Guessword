@@ -185,6 +185,15 @@ function makechoice(clicked){
 
 function clicknext(){
 		
+    document.getElementById("button1").disabled = 0;
+    document.getElementById("button2").disabled = 0;
+    document.getElementById("button3").disabled = 0;
+    document.getElementById("button4").disabled = 0;
+    document.getElementById("button5").disabled = 0;
+    document.getElementById("button6").disabled = 0;
+    document.getElementById("button7").disabled = 0;
+
+    document.getElementById("wrongchoices").checked = 0;
 	
     langCodes = [];
     langNames = [];
@@ -355,4 +364,63 @@ function clicknext(){
 		var tagObj = xmlDoc.getElementsByTagName("text");
 		var word1 = tagObj[0].childNodes[0].nodeValue;
 		document.getElementById("foreignword").innerText = word1;
+}
+
+function disableWrongChoices() {
+		if(document.getElementById("wrongchoices").checked)
+		{
+			var i=0;
+			console.log("checked");
+               	while(i<3){
+	       			NumberOfDisabledButton = Math.floor(Math.random()*7);
+                    console.log(NumberOfDisabledButton);
+                    if(NumberOfDisabledButton!=answer){
+				        switch(NumberOfDisabledButton){
+					        case 0:
+					            if(!document.getElementById("button1").disabled){
+                                    document.getElementById("button1").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 1:
+					            if(!document.getElementById("button2").disabled){
+                                    document.getElementById("button2").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 2:
+					            if(!document.getElementById("button3").disabled){
+                                    document.getElementById("button3").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 3:
+					            if(!document.getElementById("button4").disabled){
+                                    document.getElementById("button4").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 4:
+					            if(!document.getElementById("button5").disabled){
+                                    document.getElementById("button5").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 5:
+					            if(!document.getElementById("button6").disabled){
+                                    document.getElementById("button6").disabled = true;
+                                    i++;
+                                    continue;
+                                }
+					        case 6:
+					            if(!document.getElementById("button7").disabled){
+                                    document.getElementById("button7").disabled = true;
+                                    i++;
+                                    continue;   
+                                }
+                        }
+				    }				
+			}			
+				
+		}
 }
