@@ -383,6 +383,7 @@ function disableWrongChoices() {
                              				       i++;
                                 			    continue;
                                				 }
+							break;
 						case 1:
 							if(!document.getElementById("button2").disabled){
                                    				document.getElementById("button2").disabled = true;
@@ -390,6 +391,7 @@ function disableWrongChoices() {
                                   				i++;
                                    				continue;
                               				  }
+							break;
 						case 2:
 							if(!document.getElementById("button3").disabled){
                                  				 document.getElementById("button3").disabled = true;
@@ -397,6 +399,7 @@ function disableWrongChoices() {
                                  				 i++;
                                    				 continue;
                                 			}
+							break;
 						case 3:
 							if(!document.getElementById("button4").disabled){
                                 			 	  document.getElementById("button4").disabled = true;
@@ -404,6 +407,7 @@ function disableWrongChoices() {
                                   				  i++;
                                    				  continue;
                                				 }
+							break;
 						case 4:
 							if(!document.getElementById("button5").disabled){
                                  				  document.getElementById("button5").disabled = true;
@@ -411,6 +415,7 @@ function disableWrongChoices() {
                                   				  i++;
                                   				  continue;
                                				 }
+							break;
 						case 5:
 							if(!document.getElementById("button6").disabled){
                                					  document.getElementById("button6").disabled = true;
@@ -418,6 +423,7 @@ function disableWrongChoices() {
                                   				  i++;
                                   				  continue;
                                				 }
+							break;
 						case 6:
 							if(!document.getElementById("button7").disabled){
                                   				  document.getElementById("button7").disabled = true;
@@ -425,6 +431,7 @@ function disableWrongChoices() {
                                    				  i++;
                                    				  continue;   
                                				 }
+							break;
                        			 }
 				 }				
 			}			
