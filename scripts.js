@@ -1,3 +1,4 @@
+var TranslationDirection = 1;
 var answer = 0;
 var NumberOfPositiveAnswers = 0;
 var NumberOfNegativeAnswers = 0;
@@ -33,6 +34,10 @@ function oncreate(){
         }
     });
 	
+    document.getElementById("RussianToForeign").checked = 1;
+    changeTranslationDirection();
+    document.getElementById("difficulty").value = 500;
+    difficultyLevel();
     clicknext();
 }
 function makechoice(clicked){
@@ -332,16 +337,17 @@ function clicknext(){
 	document.getElementById("language").innerText = "Язык";
 	AnswerIsGiven = false;
 	
-        difficulty = document.getElementById("difficulty").value;
-	var i = 0;
-	while(i<7){
-		//index = Math.floor(Math.random()*ozhegov.length);
-       		index = Math.floor(Math.random()*difficulty);
-		translations[i] = ozhegov[index];
-		i++;
-	}
+        difficulty = document.getElementById("difficulty").value;    if(TranslationDirection==1)
+    {
+	    var i = 0;
+	    while(i<7){
+		    //index = Math.floor(Math.random()*ozhegov.length);
+            index = Math.floor(Math.random()*difficulty);
+		    translations[i] = ozhegov[index];
+		    i++;
+	    }
 	   
-	document.getElementById("button1").innerText = translations[0];
+	    document.getElementById("button1").innerText = translations[0];
         document.getElementById("button2").innerText = translations[1];
         document.getElementById("button3").innerText = translations[2];
         document.getElementById("button4").innerText = translations[3];
@@ -364,6 +370,70 @@ function clicknext(){
 		var tagObj = xmlDoc.getElementsByTagName("text");
 		var word1 = tagObj[0].childNodes[0].nodeValue;
 		document.getElementById("foreignword").innerText = word1;
+    }
+    else
+    {
+        answer = Math.floor(Math.random()*7);
+
+        var i = 0;
+        var request = new XMLHttpRequest();
+        var russianWord;
+
+	    while(i<7){
+		    //index = Math.floor(Math.random()*ozhegov.length);
+            index = Math.floor(Math.random()*difficulty);
+		    translations[i] = ozhegov[index];
+		    var russianWord = translations[i];
+            console.log(russianWord);
+            
+		    pickedLanguageLocal = Math.floor(Math.random()*langCodes.length);
+
+            if(i==answer)
+            {
+                word1 = translations[i];   
+                pickedLanguage = pickedLanguageLocal;             
+            }
+
+		    var queryToYandex = "https://translate.yandex.net/api/v1.5/tr/translate";
+		    queryToYandex = queryToYandex + "?key=trnsl.1.1.20191110T113219Z.a27f93a787a423c7.4cfa3910ce62c9397fbbd42b19380575446b555c";
+		    queryToYandex = queryToYandex + "&text="+russianWord;
+		    queryToYandex = queryToYandex + "&lang=ru-"+langCodes[pickedLanguageLocal]; 
+		    console.log(queryToYandex);
+		    request.open('GET',queryToYandex,false);
+		    request.send();
+		    var xmlDoc = request.responseXML;
+		    var tagObj = xmlDoc.getElementsByTagName("text");		    
+            translations[i] = tagObj[0].childNodes[0].nodeValue;
+		    i++;
+	    }
+	   
+	    document.getElementById("button1").innerText = translations[0];
+        document.getElementById("button2").innerText = translations[1];
+        document.getElementById("button3").innerText = translations[2];
+        document.getElementById("button4").innerText = translations[3];
+        document.getElementById("button5").innerText = translations[4];
+        document.getElementById("button6").innerText = translations[5];
+        document.getElementById("button7").innerText = translations[6];
+		
+	document.getElementById("foreignword").innerText = word1;
+    }
+}
+
+function changeTranslationDirection() {
+
+    if(document.getElementById("RussianToForeign").checked)
+    {
+        TranslationDirection = 1;
+        clicknext();
+        console.log("Направление перевода: с русского на иностранный");
+    }
+
+    if(document.getElementById("ForeignToRussian").checked)
+    {
+        TranslationDirection = 2;
+        clicknext();
+        console.log("Направление перевода: с иностранного на русский");
+    }
 }
 
 function disableWrongChoices() {
