@@ -25,6 +25,11 @@
 	<h1 id="language" style="text-align: center; width:100%">Язык</h1>
 	<h1 id="rightwrong" style="text-align: center; width:100%">верно/неверно</h1>
 	<h1 id="counter" style="text-align: center; width:100%">0+/0-(0%)</h1>
+	<fieldset id="group1">
+		 <li style="font-size:60px">Направление перевода</li>
+    		 <li style="font-size:60px"><input type="radio" value="value1" name="group1" id="RussianToForeign" checked onclick="changeTranslationDirection()">С русского на иностранный</li>
+   		 <li style="font-size:60px"><input type="radio" value="value2" name="group1" id="ForeignToRussian" onclick="changeTranslationDirection()">С иностранного на русский</li>
+ 	</fieldset>
         <li style="font-size:60px"><input type="checkbox" id="wrongchoices" onclick="disableWrongChoices()" unchecked/>Убрать 3 неправильных ответа</li>
 	<script>
   	 function difficultyLevel() {
