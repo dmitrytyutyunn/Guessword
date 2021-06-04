@@ -3,8 +3,8 @@ var answer = 0;
 var NumberOfPositiveAnswers = 0;
 var NumberOfNegativeAnswers = 0;
 var AnswerIsGiven = new Boolean(false);
-var langCodes = ["en","de","el","be","es","fr","it","lt","nl","pl","sv"];
-var langNames = ["Английский","Немецкий","Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
+var langCodes = ["en","de"];//,"el","be","es","fr","it","lt","nl","pl","sv"];
+var langNames = ["Английский","Немецкий"];//,"Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
 var pickedLanguage = 0;
 var russian_words = ["и","в","не","он","на","я","что","тот","быть","с"];
 var words = ["and","in","not","he","on","I","what","that","to be","with"];
@@ -65,6 +65,9 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"english_words.txt");
     english_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"german_words.txt");
+    german_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -399,8 +402,8 @@ function clicknext(){
             document.getElementById("button7").innerText = translations[6];
 		
 	        //var russianWord = translations[answer];
-		//pickedLanguage = Math.floor(Math.random()*langCodes.length);
-		pickedLanguage = 0;
+		pickedLanguage = Math.floor(Math.random()*langCodes.length);
+		//pickedLanguage = 0;
 		//var queryToYandex = "https://translate.yandex.net/api/v1.5/tr/translate";
 		//queryToYandex = queryToYandex + "?key=trnsl.1.1.20191110T113219Z.a27f93a787a423c7.4cfa3910ce62c9397fbbd42b19380575446b555c";
 		//queryToYandex = queryToYandex + "&text="+russianWord;
@@ -415,8 +418,7 @@ function clicknext(){
 		if(pickedLanguage==0)
 			word1 = english_words[index_of_true_answer];
 		if(pickedLanguage==1)
-		        word1 = german_words[index_of_true_answer];
-		
+		        word1 = german_words[index_of_true_answer];		
 
 		document.getElementById("foreignword").innerText = word1;
     }
