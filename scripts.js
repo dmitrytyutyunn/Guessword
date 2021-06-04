@@ -3,13 +3,14 @@ var answer = 0;
 var NumberOfPositiveAnswers = 0;
 var NumberOfNegativeAnswers = 0;
 var AnswerIsGiven = new Boolean(false);
-var langCodes = ["en","de"];//,"el","be","es","fr","it","lt","nl","pl","sv"];
-var langNames = ["Английский","Немецкий"];//,"Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
+var langCodes = ["en","de","sv"];//,"el","be","es","fr","it","lt","nl","pl","sv"];
+var langNames = ["Английский","Немецкий","Шведский"];//,"Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
 var pickedLanguage = 0;
 var russian_words = ["и","в","не","он","на","я","что","тот","быть","с"];
 var words = ["and","in","not","he","on","I","what","that","to be","with"];
 var english_words = ["a","b","c","d","e","f","g","h","i","j"];
 var german_words = ["a","b","c","d","e","f","g","h","i","j"];
+var swedish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
 
 function readTextFile(file)
@@ -68,6 +69,9 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"german_words.txt");
     german_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"swedish_words.txt");
+    swedish_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -418,7 +422,9 @@ function clicknext(){
 		if(pickedLanguage==0)
 			word1 = english_words[index_of_true_answer];
 		if(pickedLanguage==1)
-		        word1 = german_words[index_of_true_answer];		
+		        word1 = german_words[index_of_true_answer];	
+		if(pickedLanguage==2)
+		        word1 = swedish_words[index_of_true_answer];	
 
 		document.getElementById("foreignword").innerText = word1;
     }
