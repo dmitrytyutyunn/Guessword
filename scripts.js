@@ -3,14 +3,16 @@ var answer = 0;
 var NumberOfPositiveAnswers = 0;
 var NumberOfNegativeAnswers = 0;
 var AnswerIsGiven = new Boolean(false);
-var langCodes = ["en","de","sv"];//,"el","be","es","fr","it","lt","nl","pl","sv"];
-var langNames = ["Английский","Немецкий","Шведский"];//,"Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
+var langCodes = ["en","de","sv","fr","it"];//,"el","be","es","fr","it","lt","nl","pl","sv"];
+var langNames = ["Английский","Немецкий","Шведский","Французский","Итальянский"];//,"Греческий","Белорусский","Испанский","Французский","Итальянский","Литовский","Голландский","Польский","Шведский"];
 var pickedLanguage = 0;
 var russian_words = ["и","в","не","он","на","я","что","тот","быть","с"];
 var words = ["and","in","not","he","on","I","what","that","to be","with"];
 var english_words = ["a","b","c","d","e","f","g","h","i","j"];
 var german_words = ["a","b","c","d","e","f","g","h","i","j"];
 var swedish_words = ["a","b","c","d","e","f","g","h","i","j"];
+var french_words = ["a","b","c","d","e","f","g","h","i","j"];
+var italian_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
 
 function readTextFile(file)
@@ -78,6 +80,12 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"swedish_words.txt");
     swedish_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"french_words.txt");
+    french_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"italian_words.txt");
+    italian_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -261,22 +269,27 @@ function clicknext(){
         langCodes.push("de");
         langNames.push("Немецкий");
     }
-    
-    if(document.getElementById('whiterussian').checked){
-        langCodes.push("be");
-        langNames.push("Белорусский");
+  
+    if(document.getElementById('swedish').checked){
+        langCodes.push("sv");
+        langNames.push("Шведский");
     }
-    
+  
     if(document.getElementById('french').checked){
         langCodes.push("fr");
         langNames.push("Французский");
     }
-    
+
     if(document.getElementById('italian').checked){
         langCodes.push("it");
         langNames.push("Итальянский");
     }
-    
+
+    if(document.getElementById('whiterussian').checked){
+        langCodes.push("be");
+        langNames.push("Белорусский");
+    }
+      
     if(document.getElementById('greek').checked){
         langCodes.push("el");
         langNames.push("Греческий");
@@ -285,11 +298,6 @@ function clicknext(){
     if(document.getElementById('litovian').checked){
         langCodes.push("lt");
         langNames.push("Литовский");
-    }
-    
-    if(document.getElementById('swedish').checked){
-        langCodes.push("sv");
-        langNames.push("Шведский");
     }
     
     if(document.getElementById('norway').checked){
@@ -429,13 +437,18 @@ function clicknext(){
 		//var xmlDoc = request.responseXML;
 		//var tagObj = xmlDoc.getElementsByTagName("text");
 		//var word1 = tagObj[0].childNodes[0].nodeValue;
-		if(pickedLanguage==0)
+		if(langCodes[pickedLanguage]=="en")
 			word1 = english_words[index_of_true_answer];
-		if(pickedLanguage==1)
+		if(langCodes[pickedLanguage]=="de")
 		        word1 = german_words[index_of_true_answer];	
-		if(pickedLanguage==2)
+		if(langCodes[pickedLanguage]=="sv")
 		        word1 = swedish_words[index_of_true_answer];	
+		if(langCodes[pickedLanguage]=="fr")
+		        word1 = french_words[index_of_true_answer];
+		if(langCodes[pickedLanguage]=="it")
+		        word1 = italian_words[index_of_true_answer];
 
+		console.log("Язык:");
 		document.getElementById("foreignword").innerText = word1;
     }
     else
