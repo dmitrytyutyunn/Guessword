@@ -31,6 +31,12 @@ function readTextFile(file)
   rawFile.send(null);
 }
  
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+}
+
 function oncreate(){
 
     var fileInput = document.getElementById('fileInput');
@@ -229,7 +235,7 @@ function makechoice(clicked){
 		   break;
 	} 
 	var percent = 100*NumberOfPositiveAnswers/(NumberOfPositiveAnswers+NumberOfNegativeAnswers);
-	document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(1)+"%)";
+	document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(2)+"%)";
 }
 
 function clicknext(){
@@ -381,15 +387,18 @@ function clicknext(){
 	document.getElementById("language").innerText = "Язык";
 	AnswerIsGiven = false;
 	
-        difficulty = document.getElementById("difficulty").value;    
+        difficulty = document.getElementById("difficulty").value;   
+ 
         if(TranslationDirection==1)
         {
-	    answer = Math.floor(Math.random()*7);
+	    //answer = Math.floor(Math.random()*7);
+            answer = getRandomIntInclusive(0,6);
             var index_of_true_answer = 1;
 	    var i = 0;
 	    while(i<7){
 		    //index = Math.floor(Math.random()*ozhegov.length);
-                    index = Math.floor(Math.random()*difficulty);
+                    //index = Math.floor(Math.random()*difficulty);
+		    index = getRandomIntInclusive(0,difficulty-1);
                     if(i==answer){
                     	index_of_true_answer = index;
 		    }
@@ -406,7 +415,8 @@ function clicknext(){
             document.getElementById("button7").innerText = translations[6];
 		
 	        //var russianWord = translations[answer];
-		pickedLanguage = Math.floor(Math.random()*langCodes.length);
+		//pickedLanguage = Math.floor(Math.random()*langCodes.length);
+		pickedLanguage = getRandomIntInclusive(0,langCodes.length-1);
 		//pickedLanguage = 0;
 		//var queryToYandex = "https://translate.yandex.net/api/v1.5/tr/translate";
 		//queryToYandex = queryToYandex + "?key=trnsl.1.1.20191110T113219Z.a27f93a787a423c7.4cfa3910ce62c9397fbbd42b19380575446b555c";
@@ -430,20 +440,22 @@ function clicknext(){
     }
     else
     {
-        answer = Math.floor(Math.random()*7);
-
+        //answer = Math.floor(Math.random()*7);
+	answer = getRandomIntInclusive(0,6);
         var i = 0;
         //var request = new XMLHttpRequest();
         var russianWord;
 
 	    while(i<7){
 		    //index = Math.floor(Math.random()*ozhegov.length);
-            index = Math.floor(Math.random()*difficulty);
+            	    //index = Math.floor(Math.random()*difficulty);
+		    index = getRandomIntInclusive(0,difficulty-1);
 		    translations[i] = russian_words[index];
 		    var russianWord = translations[i];
-            console.log(russianWord);
+          	    console.log(russianWord);
             
-		    pickedLanguageLocal = Math.floor(Math.random()*langCodes.length);
+		    //pickedLanguageLocal = Math.floor(Math.random()*langCodes.length);
+		    pickedLanguageLocal = getRandomIntInclusive(0,langCodes.length-1);
 
             if(i==answer)
             {
