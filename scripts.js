@@ -13,6 +13,7 @@ var german_words = ["a","b","c","d","e","f","g","h","i","j"];
 var swedish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var french_words = ["a","b","c","d","e","f","g","h","i","j"];
 var italian_words = ["a","b","c","d","e","f","g","h","i","j"];
+var spanish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
 
 function readTextFile(file)
@@ -86,6 +87,9 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"italian_words.txt");
     italian_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"spanish_words.txt");
+    spanish_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -260,6 +264,7 @@ function clicknext(){
 	
     langCodes = [];
     langNames = [];
+    translations = [];
 
     if(document.getElementById('english').checked){
         langCodes.push("en");
@@ -447,8 +452,9 @@ function clicknext(){
 		        word1 = french_words[index_of_true_answer];
 		if(langCodes[pickedLanguage]=="it")
 		        word1 = italian_words[index_of_true_answer];
+		if(langCodes[pickedLanguage]=="es")
+		        word1 = spanish_words[index_of_true_answer];
 
-		console.log("Язык:");
 		document.getElementById("foreignword").innerText = word1;
     }
     else
@@ -470,11 +476,11 @@ function clicknext(){
 		    //pickedLanguageLocal = Math.floor(Math.random()*langCodes.length);
 		    pickedLanguageLocal = getRandomIntInclusive(0,langCodes.length-1);
 
-            if(i==answer)
-            {
-                word1 = translations[i];   
-                pickedLanguage = pickedLanguageLocal;             
-            }
+          	    if(i==answer)
+          	    {
+           		word1 = translations[i];   
+                	pickedLanguage = pickedLanguageLocal;             
+            	    }
 
 		    //var queryToYandex = "https://translate.yandex.net/api/v1.5/tr/translate";
 		    //queryToYandex = queryToYandex + "?key=trnsl.1.1.20191110T113219Z.a27f93a787a423c7.4cfa3910ce62c9397fbbd42b19380575446b555c";
@@ -486,7 +492,18 @@ function clicknext(){
 		    //var xmlDoc = request.responseXML;
 		    //var tagObj = xmlDoc.getElementsByTagName("text");		    
                     //translations[i] = tagObj[0].childNodes[0].nodeValue;
-		    //translations[i] = 
+			if(langCodes[pickedLanguage]=="en")
+			   translations[i] = english_words[index];
+			if(langCodes[pickedLanguage]=="de")
+		  	   translations[i] = german_words[index];	
+			if(langCodes[pickedLanguage]=="sv")
+		  	   translations[i] = swedish_words[index];	
+			if(langCodes[pickedLanguage]=="fr")
+		    	   translations[i] = french_words[index];
+			if(langCodes[pickedLanguage]=="it")
+		      	   translations[i] = italian_words[index];
+			if(langCodes[pickedLanguage]=="es")
+		       	   translations[i] = spanish_words[index];
 		    i++;
 	    }
 	   
@@ -516,7 +533,7 @@ function changeTranslationDirection() {
         TranslationDirection = 2;
         clicknext();
         console.log("Направление перевода: с иностранного на русский");
-    }
+    }    
 }
 
 function disableWrongChoices() {
