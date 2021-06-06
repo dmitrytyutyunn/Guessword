@@ -14,6 +14,7 @@ var swedish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var french_words = ["a","b","c","d","e","f","g","h","i","j"];
 var italian_words = ["a","b","c","d","e","f","g","h","i","j"];
 var spanish_words = ["a","b","c","d","e","f","g","h","i","j"];
+var esperanto_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
 
 function readTextFile(file)
@@ -90,6 +91,9 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"spanish_words.txt");
     spanish_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"esperanto_words.txt");
+    esperanto_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -454,6 +458,8 @@ function clicknext(){
 		        word1 = italian_words[index_of_true_answer];
 		if(langCodes[pickedLanguage]=="es")
 		        word1 = spanish_words[index_of_true_answer];
+		if(langCodes[pickedLanguage]=="eo")
+		        word1 = esperanto_words[index_of_true_answer];
 
 		document.getElementById("foreignword").innerText = word1;
     }
@@ -504,6 +510,8 @@ function clicknext(){
 		      	   translations[i] = italian_words[index];
 			if(langCodes[pickedLanguage]=="es")
 		       	   translations[i] = spanish_words[index];
+			if(langCodes[pickedLanguage]=="eo")
+		       	   translations[i] = esperanto_words[index];
 		    i++;
 	    }
 	   
