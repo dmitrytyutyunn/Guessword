@@ -469,16 +469,16 @@ function clicknext(){
 		    //index = Math.floor(Math.random()*ozhegov.length);
             	    //index = Math.floor(Math.random()*difficulty);
 		    index = getRandomIntInclusive(0,difficulty-1);
-		    translations[i] = russian_words[index];
-		    var russianWord = translations[i];
-          	    console.log(russianWord);
+		    //translations[i] = russian_words[index];
+		    //var russianWord = russian_words[index];
+          	    //console.log(russianWord);
             
 		    //pickedLanguageLocal = Math.floor(Math.random()*langCodes.length);
 		    pickedLanguageLocal = getRandomIntInclusive(0,langCodes.length-1);
 
           	    if(i==answer)
           	    {
-           		word1 = translations[i];   
+           		word1 = russian_words[index];   
                 	pickedLanguage = pickedLanguageLocal;             
             	    }
 
