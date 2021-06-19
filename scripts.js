@@ -15,6 +15,8 @@ var french_words = ["a","b","c","d","e","f","g","h","i","j"];
 var italian_words = ["a","b","c","d","e","f","g","h","i","j"];
 var spanish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var esperanto_words = ["a","b","c","d","e","f","g","h","i","j"];
+var polnish_words = ["a","b","c","d","e","f","g","h","i","j"];
+var portugalian_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
 
 function readTextFile(file)
@@ -94,6 +96,12 @@ function oncreate(){
 
     readTextFile(path.substring(0,path.length-10)+"esperanto_words.txt");
     esperanto_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"polnish_words.txt");
+    polnish_words = words;
+
+    readTextFile(path.substring(0,path.length-10)+"portugalian_words.txt");
+    portugalian_words = words;
 
 //    var reader = new FileReader();
 //    reader.readAsText(path.substring(0,path.length-10)+"russian_words.txt");
@@ -460,6 +468,10 @@ function clicknext(){
 		        word1 = spanish_words[index_of_true_answer];
 		if(langCodes[pickedLanguage]=="eo")
 		        word1 = esperanto_words[index_of_true_answer];
+		if(langCodes[pickedLanguage]=="pl")
+		        word1 = polnish_words[index_of_true_answer];
+		if(langCodes[pickedLanguage]=="pt")
+		        word1 = portugalian_words[index_of_true_answer];
 
 		document.getElementById("foreignword").innerText = word1;
     }
@@ -512,6 +524,10 @@ function clicknext(){
 		       	   translations[i] = spanish_words[index];
 			if(langCodes[pickedLanguage]=="eo")
 		       	   translations[i] = esperanto_words[index];
+			if(langCodes[pickedLanguage]=="pl")
+		       	   translations[i] = polnish_words[index];
+			if(langCodes[pickedLanguage]=="pt")
+		       	   translations[i] = portugalian_words[index];
 		    i++;
 	    }
 	   
