@@ -18,6 +18,7 @@ var esperanto_words = ["a","b","c","d","e","f","g","h","i","j"];
 var polnish_words = ["a","b","c","d","e","f","g","h","i","j"];
 var portugalian_words = ["a","b","c","d","e","f","g","h","i","j"];
 var translations = ["пост","еда","старик","красота","нежность","вера","ключ"];
+var NumberOfHints = 0;
 
 function readTextFile(file)
 {  
@@ -259,7 +260,12 @@ function makechoice(clicked){
 		   break;
 	} 
 	var percent = 100*NumberOfPositiveAnswers/(NumberOfPositiveAnswers+NumberOfNegativeAnswers);
-	document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(2)+"%)";
+	if(NumberOfHints==1){
+		document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(2)+"%), "+NumberOfHints+" 		подсказка";}
+	else if(NumberOfHints==2||NumberOfHints==3||NumberOfHints==4){
+		document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(2)+"%), "+NumberOfHints+" 		подсказки";}
+	else{
+		document.getElementById("counter").innerText = NumberOfPositiveAnswers+"+"+NumberOfNegativeAnswers+"-("+percent.toFixed(2)+"%), "+NumberOfHints+" 		подсказок";}	
 }
 
 function clicknext(){
@@ -565,6 +571,7 @@ function disableWrongChoices() {
 		{
 			var i=0;
 			console.log("checked");
+			NumberOfHints = NumberOfHints+1;
                	while(i<3){
 	       			NumberOfDisabledButton = Math.floor(Math.random()*7);
                     console.log(NumberOfDisabledButton);
